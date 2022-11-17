@@ -1,0 +1,49 @@
+Livro (ISBN, titulo, idioma, num_pags, [ISBN_ant])
+	ISBN_ant -> Livro (ISBN)
+Genero (ISBN, genero)
+	ISBN -> Livro (ISBN)
+E-Book (ISBN, tamanho, formato)
+	ISBN -> Livro (ISBN)
+
+Editora (CNPJ, nome, end_CEP, end_complemento)
+
+Loja (unidade, fundação, end_CEP, end_complemento)
+
+Compra (ISBN, CPF, protocolo, codigo)
+	CPF -> Leitor(CPF)
+ISBN -> Livro (ISBN)
+	codigo -> Desconto (codigo)
+
+Desconto (codigo, porcentagem)
+
+Leitor (CPF, nome, e-mail, tel1, tel2, qtd_compras, end_CEP, end_complemento)
+Gens_fav (CPF, genero)
+	CPF -> Leitor(CPF)
+
+Autor (CPF, nome, e-mail, tel1, tel2, pseudonimo)
+
+Funcionario (CPF, nome, e-mail, tel1, tel2, setor, salario, end_CEP, end_complemento)
+
+Trabalha(CPF, Unidade, Data)
+	CPF -> Funcionário(CPF)
+	Unidade -> Loja(Unidade)
+Vc,
+Tradutor (CPF, nome, e-mail, tel1, tel2, idioma)
+
+Publica (ISBN, CNPJ) 
+	ISBN -> Livro (ISBN)
+	CNPJ -> Editora (CNPJ)
+
+Escreve (ISBN, CPF)
+	ISBN -> Livro (ISBN)
+	CPF -> Autor (CPF)
+
+Tem (ISBN, unidade)
+	ISBN -> Livro (ISBN)
+	unidade -> Loja (unidade)
+
+Traduz (ISBN, CNPJ, CPF)
+	ISBN -> Livro (ISBN)
+	CNPJ -> Editora (CNPJ)
+	CPF -> Tradutor (CPF)
+
